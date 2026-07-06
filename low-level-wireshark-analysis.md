@@ -1,41 +1,36 @@
-Incident Title
+# Incident Title
 
 Suspicious DNS Beaconing Activity Detected
 
-Date
+## Date
 
-1015-12-30
+2025-12-30
 
-Summary
+## Summary
 
 Suspicious DNS and HTTP traffic was detected originating from a single internal host. The traffic pattern indicates possible command-and-control (C2) beaconing behavior.
 
-Observations
+## Observations
 
-Repetitive DNS queries to non-standard domains
+- Repetitive DNS queries to non-standard domains
+- High entropy domain names
+- Regular time intervals between requests
+- HTTP GET requests without user-agent diversity
 
-High entropy domain names
-
-Regular time intervals between requests
-
-HTTP GET requests without user-agent diversity
-
-Analysis
+## Analysis
 
 DNS traffic analysis revealed periodic queries occurring every few seconds, suggesting automated behavior rather than human activity. The queried domains do not appear in known legitimate services.
 
 HTTP traffic following DNS resolution indicates potential C2 callback behavior.
 
-Impact
+## Impact
 
 If confirmed malicious, this activity could allow:
 
-Remote command execution
+- Remote command execution
+- Data exfiltration
+- Persistent access to the internal network
 
-Data exfiltration
-
-Persistent access to the internal network
-
-Conclusion
+## Conclusion
 
 The observed traffic is consistent with beaconing behavior commonly associated with malware C2 communication.
